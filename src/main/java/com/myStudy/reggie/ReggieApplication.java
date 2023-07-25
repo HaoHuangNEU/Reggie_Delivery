@@ -11,6 +11,6 @@ import javax.swing.*;
 public class ReggieApplication {
     public static void main(String[] args) {
         SpringApplication.run(ReggieApplication.class,args);
-        log.info("Starting successfully");
+        log.info("启动成功");
     }
 }
