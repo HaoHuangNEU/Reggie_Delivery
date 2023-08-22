@@ -1,6 +1,7 @@
 package com.myStudy.reggie.filter;
 
 import com.alibaba.fastjson.JSON;
+import com.myStudy.reggie.common.BaseContext;
 import com.myStudy.reggie.common.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.AntPathMatcher;
@@ -53,6 +54,9 @@ public class LoginCheckFilter implements Filter {
         //4. check login status, if logged in, pass
         if(request.getSession().getAttribute("employee") != null){
             log.info("user has logged in, id is {}",request.getSession().getAttribute("employee"));
+            Long empId = (Long) request.getSession().getAttribute("employee");
+            BaseContext.setCurrentId(empId);
+            BaseContext.setCurrentId(empId);
             filterChain.doFilter(request,response);
             return;
         }
